@@ -31,10 +31,10 @@ class NetworkRailConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         home_station = user_input[CONF_HOME_STATION].strip()
         dest_station = user_input[CONF_DESTINATION_STATION].strip()
         
-        if not home_station.isupper() or len(home_station) != 3:
+        if not home_station.isupper() or len(home_station) != 3  or not home_station.isalpha():
             errors[CONF_HOME_STATION] = "Station code must be 3 uppercase letters (e.g., VIC)"
         
-        if not dest_station.isupper() or len(dest_station) != 3:
+        if not dest_station.isupper() or len(dest_station) != 3 or not dest_station.isalpha():
             errors[CONF_DESTINATION_STATION] = "Station code must be 3 uppercase letters (e.g., VIC)"
         
         if errors:

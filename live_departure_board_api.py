@@ -1,6 +1,6 @@
 import aiohttp
 from typing import Optional
-from .const import LIVE_DEPARTURE_BOARD_API_URL
+from .const import LIVE_DEPARTURE_BOARD_API_URL, API_TIMEOUT_SECONDS
 
 class LiveDepartureBoardAPI:
     def __init__(self, token: str, session: Optional[aiohttp.ClientSession] = None):
@@ -20,7 +20,7 @@ class LiveDepartureBoardAPI:
             "Accept": "application/json"
         }
 
-        async with self._session.get(url, headers=headers, timeout=30) as resp:
+        async with self._session.get(url, headers=headers, timeout=API_TIMEOUT_SECONDS) as resp:
             if resp.status != 200:
                 text = await resp.text()
                 raise Exception(f"Live Departure Board API returned HTTP {resp.status}: {text[:200]}")
