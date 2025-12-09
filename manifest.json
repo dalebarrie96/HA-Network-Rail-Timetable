@@ -1,0 +1,10 @@
+{
+  "domain": "network_rail_timetable",
+  "name": "Network Rail Timetable",
+  "version": "0.0.1",
+  "documentation": "https://github.com/dalebarrie96/TODO",
+  "requirements": [],
+  "codeowners": ["@dalebarrie96"],
+  "iot_class": "cloud_polling",
+  "config_flow": true
+}
